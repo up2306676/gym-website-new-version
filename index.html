@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- also mentioned in Lecture 5, slide 40 --> 
+    <title>Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+	<!--<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+ </head>
+ <body>
+
+    <!-- Header Section -->
+    <header>
+        <nav class="navigation-container">
+            <a href="index.html" target="_blank" class="logo">STRONGER</a><!--The logo serves as a link to the home page-->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a> </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-options">What We Offer</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Classes</a></li>
+                        <li><a href="#">Personal Training</a></li>
+                        <li><a href="#">Nutrition</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Meet the Team</a></li>
+			    <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li class="navigation-button">
+                   <a href="contact.html" class="button">Join Now</a> 
+                </li>    
+            </ul>     
+        </nav>      
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="wellcome-image">
+            <img src="images/wellcome-image.jpg"  alt="Photo by Victor Freitas on Unsplash">
+            <div class="wellcome-text">
+                Empower Your Fitness Journey 
+            </div>    
+        </div> 
+        <!--Flex grid starts here-->  
+        <div class="grid-container"> 
+            <div class="classes">
+                <h1 class="heading">Classes</h1>
+                <img src="images/classes-image.jpg" alt="Photo by i yunmai on Unsplash">
+                <p>Stay motivated, push your limits, and have fun with our expert-led fitness classes! Whether you're looking for high-energy cardio, strength training, or a mind-body workout, we have something for everyone.</p>
+                <a href="classes.html">Timetables</a>
+            </div>
+            <div class="personal-training">
+                <h1 class="heading">Personal training</h1>
+                <img src="images/persona-training-image.jpg" alt="Photo by Marvin Cors on Unsplash">
+                <p>Unlock your full potential with expert personal training! Our certified trainers create customized workout plans tailored to your goals—whether you’re looking to build muscle, lose weight, or enhance endurance. With one-on-one coaching, motivation, and expert support, we help you stay accountable and achieve lasting results</p>
+                <a href="personal-training.html">Packages</a>
+
+            </div>
+            <div class="nutrition">
+                <h1 class="heading">Nutrition</h1>
+                <img src="images/nutrition-image.jpg" alt="Photo by Markus Winkler on Unsplash">
+                <p>Fuel your workouts with the right nutrition! We provide expert nutritional guidance to complement your fitness routine. Whether you need meal plans, supplements, or diet tips, we’re here to help you optimize your results.</p>
+                <a href="nutrition.html">Plans</a>
+
+            </div>
+        </div>    
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 up2306676. All Rights Reserved.</p>
+            <div class="social-media-links"> <!--all the social medial links open in a new window-->
+                <a href="https://www.instagram.com/" target="_blank"><img src="https://img.icons8.com/ios/50/FA5252/instagram-new--v1.png" alt="instagram-new--v1"></a>
+                <a href="https://www.facebook.com/" target="_blank"><img src="https://img.icons8.com/ios/50/FA5252/facebook-new.png" alt="facebook-new"></a>
+                <a href="https://www.pinterest.com/" target="_blank"><img src="https://img.icons8.com/ios/50/FA5252/pinterest--v1.png" alt="pinterest--v1"></a>
+            </div>
+        </div>
+     
+    </footer>
+    <script src="scripts/script.js"></script><!-- Link JavaScript-->
+    </body>
+</html>
+

@@ -1,0 +1,628 @@
+// use @use as @import is depricated,
+@use "variables" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; //https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+}
+
+body {
+  font-family: var(--font-primary); //allows for concistency if different font is chosen in future
+  font-weight: var(--font-weight-regular);
+  padding-top: 100px; //as the navigation is fixed, this prevents it to overlap with another content
+}
+
+main {
+  background-color: $background-color;// set the background colour for the main content
+  color: $secondary-color; // set the text colour for the main content
+  //the below two settings allow for <main> to apear behind the dropdown 
+  position: relative; 
+  z-index: 1; 
+  }
+
+
+
+  //header starts here
+
+  //logo starts here
+
+  .logo { // the logo is designed with CSS, this allwos for more flexibility when scaling 
+  font-family: var(--font-primary);// set the font for the logo
+  font-size: 50px; 
+  font-weight: bold;
+  color: $secondary-color; //logo text
+  text-transform: uppercase;//make all the letters in the logo uppercase
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 5px $third-colour;
+  padding: 10px;
+  text-decoration: none;// as the logo is also an <a> that sends us back to the home page, we need to remove the underline
+}
+
+/* Join Now button starts here*/
+
+.navigation-button a{ // style the <a> tag for the navigation button which will also be a link to the contact page
+  background-color: $background-color;
+  color: $secondary-color;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 10px;
+  border: 2px solid $secondary-color;
+}
+
+.navigation-button a:hover{ // style the behaviour of the navigation button when the user hoover over it 
+  background-color: $secondary-color;
+  color: $primary-color;
+  font-weight: bold;
+  border: 2px solid $third-colour;
+  font-size: 24px;
+  
+}
+
+
+//naviation starts here
+
+.navigation-container{ // style the navigation container, those stilles apply to logo, button and nav menu
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  position: fixed;//keeps the header visible while scrolling
+  z-index: 1000;
+  width: 100%;
+  height: 100px;
+  left:0;
+  top: 0;
+  background-color: $primary-color;
+  border-bottom: 2px solid $secondary-color;
+}
+
+.nav-menu{ // styles that apply only to the nav menu <li>
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding-right: 10px;
+
+}
+
+.dropdown { // style the dropdown container
+  position: relative;
+  display: inline-block;
+  align-items: center;
+}
+
+.dropdown-content { //style the dropdown contents
+  display: none; // hidden by default
+  position: absolute;
+  left: 0;
+  top: 80%;//move teh dropdown closer to the parent <li>
+  background-color: $primary-color;
+  border-radius: 5px;
+  min-width: 200px;
+  padding: 10px; 
+}
+
+
+
+.nav-menu a, //as the nav-menu <a> and the dropdpwn content will have the same styles they are grouped together
+.dropdown-content a  {
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 450;
+  color: $secondary-color;
+  line-height: 2; //adjust the space between the dropdown <a>
+}
+
+.nav-menu a:hover, // set teh behavoiur when user hoovers over any of teh two element
+.dropdown-content a:hover{
+  color: $third-colour;
+  font-weight: bold;
+  text-decoration: none;
+  
+}
+
+.dropdown:hover .dropdown-content{ // the dropdown content is displayed in a block 
+  display: block;
+}
+
+//hamburger menu starts here
+
+.hamburger{ 
+  display: none; //the hamburger menu is by default hidden
+  flex-direction: column;//items appear in a column
+  justify-content: center;//items are centered
+  gap: 5px;
+}
+
+.hamburger span { //styles apply to the three lines that expand to the hamburger menu
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: $background-color;
+  transition: 0.5s ease-in-out;// defines the transition with which the hamburger menu opens
+}
+
+//home page content starts here
+
+// wellcome content
+
+//overlay tutoril inspired by https://blog.logrocket.com/css-overlay/
+
+.wellcome-image{ // style the image container to expand to the full extend of the mage
+  position: relative;
+  max-width: 100%;
+
+}
+
+.wellcome-image img{ // style the image inside the welcome-image container
+  width: 100%;
+  height: 400px;
+  display: block;
+  object-fit: cover; // Crop the image instead of stretching 
+  object-position: center; // Keep the center of the image 
+}
+
+.wellcome-text{ //style the text that will appear infront of the image
+  position: absolute;
+  bottom: 15%;
+  left: 68%;
+  font-size: 3.6rem;
+  font-weight: bold;
+  text-shadow: 10px 10px 20px $primary-color;
+  text-transform: uppercase;
+  padding: 20px ;
+  
+  
+}
+
+
+//grid starts here 
+
+.grid-container{ // spread the content accross 3 different columns with the same size
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 10px;
+  padding: 20px;
+}
+
+//Possition the items in the grid
+.classes {
+  grid-column: 1 / span 3 ;
+  grid-row: 1 / 2;
+}
+
+.personal-training {
+  grid-column: 1 / span 3; 
+  grid-row: 2 / 3;
+}
+
+.nutrition {
+  grid-column:  1 / span 3; 
+  grid-row: 3 / 4;
+}
+
+.classes , // possition all three elements
+.personal-training ,
+.nutrition {
+  position: relative;
+  text-align: center;
+}
+
+.classes img, //style all images
+.personal-training img,
+.nutrition img {
+  width: 80%; 
+  height: 400px; 
+  object-fit: contain; 
+  display: block;
+  margin-top: 0;
+  justify-self: center;
+  filter: brightness(80%); //darken the images to fit the tone of the website
+  box-shadow: 12px 0 $primary-color;
+  border-right: 8px solid $secondary-color;
+ 
+}
+
+.heading { // stile the <h1> heading that appears above the images
+  padding: 10px;
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow: 5px 5px 10px $primary-color;
+  text-transform: uppercase;
+  position: static;
+}
+
+.classes p, //style the text that appears below the images
+.personal-training p,
+.nutrition p {
+  max-width: 60%; // spreads only up to 60% of the container
+  font-size: 20px;
+  padding: 20px;
+  justify-self: center;// aligns in the center
+ 
+}
+
+.classes a , // style the <a> that will serve as a link to the topic's respective page
+.personal-training a,
+.nutrition a {
+  text-transform: uppercase;
+  color: $primary-color;
+  font-weight: bold;
+  text-decoration: none;
+} 
+
+.classes a:hover , // the behaviour changes when the <a> elements are hovered over 
+.personal-training a:hover,
+.nutrition a:hover {
+ color: $secondary-color;
+ font-size: 22px;
+} 
+
+// Contact page design starts here
+
+.contact-container{ //style the grid in two sections 
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  grid-template-rows: auto;
+  gap: 10px; 
+
+}
+
+.left { // the items that will appear on the left in a column style 
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;
+}
+
+.left p{ // the <p> tag contains a message
+  position: sticky;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 10px 10px 20px $primary-color;
+  text-transform: uppercase;
+  padding: 20px;
+}
+
+//possition the items in the grid
+.contact-form {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.contact-image {
+  grid-column: 2 / 3; 
+  grid-row: 1 / 2;
+}
+
+.contact-image img{ //possition the image
+  width: 100%; 
+  height: auto; 
+  object-fit: contain; 
+  display: block;
+  margin-top: 0;
+  justify-self: center;
+  opacity: 0.6;
+}
+
+//base contact form tutorial at https://www.w3schools.com/howto/howto_css_contact_form.asp
+
+.contact-form{ //possition the form
+  width: 100%;
+  height: auto;
+  display: block;
+  justify-self: center;
+  border-radius: 5px;
+  margin-top: 50px;
+  padding-left: 40px ;
+  font-size: 20px;
+  
+}
+
+
+
+input:not([type="submit"]):not([type="message"]),//exclude the submit and message types, they will be styled separately
+select, 
+textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid $primary-color;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  
+}
+
+textarea { // styling the text area separatelly as the box needs to be larger
+  height: 250px;
+  padding: 12px;
+  border: 1px solid $primary-color;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  
+}
+
+input[type=submit] { // style the submit button
+  background-color: $primary-color;
+  color:$secondary-color;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+input[type=submit]:hover { // the submit button behaviour changes when hoovered over
+  background-color: $secondary-color;
+  color: $third-colour;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+//About page content starts here
+
+.about-container{ //style the grid in two sections 
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 20px;
+  padding: 20px;
+  
+}
+
+.about-content {
+  grid-column: 1 / 2 ;
+  grid-row: 1 / 2;
+}
+
+
+.about-content-one{
+  grid-column: 1 / 2 ;
+  grid-row: 2 / 3;
+}
+
+.about-content-two {
+  grid-column: 1 / 2 ;
+  grid-row: 3 / 4;
+}
+
+.about-content-one img{
+  width: 80%; 
+  height: 400px; 
+  object-fit: contain; 
+  margin-top: 0;
+}
+
+.about-content,
+.about-content-one,
+.about-content-two {
+  position: relative;
+  text-align: center;
+}
+
+
+// footer section starts here
+
+footer{ // style the footer
+  background-color: $background-color;
+  border-top: 3px solid $secondary-color;
+  text-align: center;
+  color: $secondary-color;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.footer-content { // align the footer content
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  flex-direction: column;
+}
+
+.footer p {// style the footer <p> element
+  text-align: center;
+  margin: 0;
+  padding: 0;
+
+}
+
+.social-media-links{ // align the social media links
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding-top: 5px;
+}
+
+.social-media-links a img{ //resize the social media icons
+  width: 35px;
+  height: auto;
+  
+}
+
+
+
+
+// add responcivnes for smaller screen
+
+@media (max-width: 768px){ // for smaller mobile devices
+
+
+  .hamburger{ // show the hamburger menu
+    display: flex;
+    user-select: none;
+    cursor: pointer;
+  }
+  .navigation-container { //style the navigation container
+    background-color: $primary-color;
+    flex-direction: column; //items appear ina cloumn
+    align-items: center; // items align to the center
+    justify-content: center;
+    transition: height 0.3s ease-in-out; //controls teh sppeed with which the menu expands
+    
+
+  }
+
+  .navigation-container.show-nav {
+    height: 100%; // Adjust height when expanded 
+  }
+
+  .nav-menu { // hide the navigation menu for smaller screens
+    position: relative;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    
+  }
+
+  .nav-menu.show-nav{
+    display: flex;
+    
+  }
+
+  .logo{ //adjust the logo
+    font-size: 30px;
+  }
+
+  //ajiust the dropdown contnent 
+  .dropdown-content {
+    text-align: center;
+    position: static;  
+  }
+
+  .dropdown-content li {
+    list-style: none;
+  }
+
+  .dropdown-content a {
+    color: $third-colour;
+  }
+
+  .dropdown-content a:hover {
+    color: $secondary-color;
+  }
+
+  //this bit will transform the three lines into an X when the hamburger menu is active, tutorial at https://www.geeksforgeeks.org/how-to-convert-the-hamburger-icon-of-navigation-menu-to-x-on-click/
+  .hamburger.show-nav span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg); //rotate the 
+  }
+
+  .hamburger.show-nav span:nth-child(2) { // the middle line is hidden 
+    opacity: 0; 
+  }
+
+  .hamburger.show-nav span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  //adjust grid 
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .classes,
+  .nutrition,
+  .personal-training {
+    text-align: center;
+  }
+
+  .classes img, 
+  .nutrition img, 
+  .personal-training img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .wellcome-text{
+    position: absolute;
+    left: 30%;
+    font-size: 35px;
+  
+    
+  }
+
+  //contact page  will mmove behind the form
+
+  .contact-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    opacity: 0.4; 
+  }  
+}
+
+@media (max-width:1024px) and (min-width: 769px) { //adjust content for larger screens
+
+  .navigation-container { //the items of the navigation container are centered
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-color;
+    align-items: center ;
+    text-align: center;
+    height: auto;
+    padding-bottom: 10px;
+
+  }
+
+  .logo{// logo moves to the centre
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  .nav-menu{ // navigation links  appear in a row bellow the logo 
+    display: flex;
+    flex-direction: row ;
+    text-align: center;
+    align-items: center ;
+  }
+
+  
+
+  .dropdown-content { //adjust the drop down appearence
+    min-width: 150px;
+    padding: 10px ;
+  }  
+
+  
+
+  //contact page adjustments
+
+  .contact-form {
+    padding-top: 30px;
+  }
+
+  .contact-image  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    opacity: 0.4; 
+  }  
+
+  .about-container{
+    margin-top: 40px;
+  }
+
+}
+
+
+
+
+
+
+
+
+

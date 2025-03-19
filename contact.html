@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- also mentioned in Lecture 5, slide 40 --> 
+    <title>Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+	<!--<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+ </head>
+ <body>
+
+    <!-- Header Section -->
+    <header>
+        <nav class="navigation-container">
+            <a href="index.html" target="_blank" class="logo">STRONGER</a><!--The logo serves as a link to the home page-->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a> </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-options">What We Offer</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Classes</a></li>
+                        <li><a href="#">Personal Training</a></li>
+                        <li><a href="#">Nutrition</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Meet the Team</a></li>
+			    <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li class="navigation-button">
+                   <a href="contact.html" class="button">Join Now</a> 
+                </li>    
+            </ul>     
+        </nav>      
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="contact-container">
+            <div class="left">
+                <form class="contact-form">
+                    <label for="fname">Name:</label><br>
+                    <input type="text" id="fname" name="fname" placeholder="Enter your name"><br>
+                    <label for="lname">Surname:</label><br>
+                    <input type="text" id="lname" name="lname" placeholder="Enter your surname"><br>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address"><br>
+                    <label for="tel">Tel:</label><br>
+                    <input type="tel" id="tel" name="tel" placeholder="Enter your telephone number"><br>
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" placeholder="Message"></textarea><br><br>
+                    <input type="submit" value="Submit">
+                </form> 
+                <p>Strong today, stronger tomorrow!</p>
+            </div>    
+            <div class="contact-image">
+                <img src="images/contact-page-img.jpg" alt="Photo by SALAH PICTURES on Unsplash">
+            </div>
+
+        </div>
+       
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 up2306676. All Rights Reserved.</p>
+            <div class="social-media-links"> <!--all the social medial links open in a new window-->
+                <a href="https://www.instagram.com/" target="_blank"><img src="https://img.icons8.com/ios/50/FA5252/instagram-new--v1.png" alt="instagram-new--v1"></a>
+                <a href="https://www.facebook.com/" target="_blank"><img src="https://img.icons8.com/ios/50/FA5252/facebook-new.png" alt="facebook-new"></a>
+                <a href="https://www.pinterest.com/" target="_blank"><img src="https://img.icons8.com/ios/50/FA5252/pinterest--v1.png" alt="pinterest--v1"></a>
+            </div>
+        </div>
+     
+    </footer>
+    <script src="scripts/script.js"></script><!-- Link JavaScript-->
+    </body>
+</html>
+
